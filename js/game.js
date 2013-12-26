@@ -1,4 +1,4 @@
-/*globals Kinetic, Image*/
+/*globals Kinetic, Image, PokerDeck, document*/
 
 // PRESENTATION CODE
 Array.prototype.randomItem = function() {
