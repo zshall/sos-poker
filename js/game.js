@@ -62,8 +62,7 @@ var system = {
     blank: [{"x":102,"y":43,"width":23,"height":22}]
 };
 
-var cardLayer = new Kinetic.Layer();
-var scoreLayer = new Kinetic.Layer();
+var layer = new Kinetic.Layer();
 var cardsImg = new Image();
 var systemImg = new Image();
 var cards = {};
@@ -79,8 +78,7 @@ function CardView (index) {
         image: cardsImg,
         animation: 'blank',
         animations: suits,
-        frameRate: 1,
-        index: 0
+        frameRate: 1
     });
     
     cards[index].rank = new Kinetic.Sprite({
@@ -89,8 +87,7 @@ function CardView (index) {
         image: cardsImg,
         animation: 'blank',
         animations: ranks,
-        frameRate: 1,
-        index: 0
+        frameRate: 1
     });
     
     cards[index].held = new Kinetic.Sprite({
@@ -99,34 +96,33 @@ function CardView (index) {
         image: systemImg,
         animation: 'held_off',
         animations: system,
-        frameRate: 1,
-        index: 0
+        frameRate: 1
     });
     
-    cardLayer.add(cards[index].suit);
-    cardLayer.add(cards[index].rank);
-    cardLayer.add(cards[index].held);
+    layer.add(cards[index].suit);
+    layer.add(cards[index].rank);
+    layer.add(cards[index].held);
 }
 
 cardsImg.onload = function() {
     // initialize 5 cards
     for (var i = 0; i < 5; i++) {
         CardView(i);
-        cards[i].rank.setAnimation(['a', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'j', 'q', 'k'].randomItem());
+        //[i].rank.setAnimation(['a', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'j', 'q', 'k'].randomItem());
         //cards[i].suit.setAnimation(['spades', 'hearts', 'clubs', 'diamonds'].randomItem());
         //cards[i].held.setAnimation(['held_off', 'held_on'].randomItem());
     }
    
-    stage.add(cardLayer);
+    //stage.add(cardLayer);
     cards[0].rank.setAnimation(3);
     
     var deck = new PokerDeck(true);
     var hand = deck.dealHand();
 //print(deck.dealHand());
 
-    for (var i = 0; i < hand.cards.length; i++) {
-        cards[i].rank.setAnimation(hand.cards[i].rank);
-        cards[i].suit.setAnimation(hand.cards[i].suit);
+    for (var j = 0; j < hand.cards.length; j++) {
+        //cards[i].rank.setAnimation(hand.cards[i].rank);
+        //cards[i].suit.setAnimation(hand.cards[i].suit);
     }
 };
 
@@ -141,44 +137,44 @@ systemImg.onload = function() {
             animations: system
         });
         //scoreboard[i].setAnimation(i);
-        scoreLayer.add(scoreboard[i]);
+        layer.add(scoreboard[i]);
     }
     
     scoreboard.overflow = new Kinetic.Sprite({
         x: 313, y: 165, animation: 'overflow_off',
         image: systemImg, animations: system,
     });
-    scoreLayer.add(scoreboard.overflow);
+    layer.add(scoreboard.overflow);
     
     scoreboard.holdOrDraw = new Kinetic.Sprite({
         x: 50, y: 140, frameRate: 2, animation: 'draw_off',
         image: systemImg, animations: system,
     });
-    scoreLayer.add(scoreboard.holdOrDraw);
+    layer.add(scoreboard.holdOrDraw);
     scoreboard.holdOrDraw.start();
     
     scoreboard.gameover = new Kinetic.Sprite({
         x: 50, y: 160, frameRate: 1, animation: 'gameover_on',
         image: systemImg, animations: system,
     });
-    scoreLayer.add(scoreboard.gameover);
+    layer.add(scoreboard.gameover);
     scoreboard.gameover.start();
     
     scoreboard.win = new Kinetic.Sprite({
         x: 180, y: 140, frameRate: 3, animation: 'win_off',
         image: systemImg, animations: system,
     });
-    scoreLayer.add(scoreboard.win);
+    layer.add(scoreboard.win);
     scoreboard.win.start();
     
     scoreboard.awe = new Kinetic.Sprite({
         x: 270, y: 137, frameRate: 1, animation: 'awe_off',
         image: systemImg, animations: system,
     });
-    scoreLayer.add(scoreboard.awe);
+    layer.add(scoreboard.awe);
     scoreboard.awe.start();
     
-    stage.add(scoreLayer);
+    stage.add(layer);
     
     // initialize other elements
     cardsImg.src = 'img/cards.png';
