@@ -1,4 +1,4 @@
-/*globals Kinetic, Image, PokerDeck, document*/
+/*globals Kinetic, Image, PokerDeck, document, d_ranks, d_suits, $, alert*/
 
 // PRESENTATION CODE
 Array.prototype.randomItem = function() {
@@ -67,6 +67,8 @@ var cardsImg = new Image();
 var systemImg = new Image();
 var cards = {};
 var scoreboard = {};
+var deck;
+var hand;
 
 function CardView (index) {
     cards[index] = {};
@@ -104,6 +106,14 @@ function CardView (index) {
     layer.add(cards[index].held);
 }
 
+function redrawBoard() {
+    for (var j = 0; j < hand.cards.length; j++) {
+        cards[j].rank.setAnimation(d_ranks[hand.cards[j].rank]);
+        cards[j].suit.setAnimation(d_suits[hand.cards[j].suit]);
+        cards[j].held.setAnimation(hand.cards[j].held ? 'held_on' : 'held_off');
+    }
+}
+
 cardsImg.onload = function() {
     // initialize 5 cards
     for (var i = 0; i < 5; i++) {
@@ -116,14 +126,43 @@ cardsImg.onload = function() {
     //stage.add(cardLayer);
     cards[0].rank.setAnimation(3);
     
-    var deck = new PokerDeck(true);
-    var hand = deck.dealHand();
-//print(deck.dealHand());
+    deck = new PokerDeck(true);
+    hand = deck.dealHand();
 
-    for (var j = 0; j < hand.cards.length; j++) {
-        //cards[i].rank.setAnimation(hand.cards[i].rank);
-        //cards[i].suit.setAnimation(hand.cards[i].suit);
-    }
+//    for (var j = 0; j < hand.cards.length; j++) {
+//        cards[j].rank.setAnimation(d_ranks[hand.cards[j].rank]);
+//        cards[j].suit.setAnimation(d_suits[hand.cards[j].suit]);
+//    }
+    redrawBoard();
+    
+    $(document).keypress(function(e) {
+        var code = e.keyCode || e.which;
+        //alert(code);
+        var c = null, d;
+        switch(code) {
+            case 97: // a
+                c = 0;
+                break;
+            case 115: // s
+                c = 1;
+                break;
+            case 100: // d
+                c = 2;
+                break;
+            case 102: // f
+                c = 3;
+                break;
+            case 103: // g
+                c = 4;
+                break;
+            case 32: // space
+                d = true;
+                break;
+        }
+        if (c !== null) hand.cards[c].held = !hand.cards[c].held;
+        if (d) hand.draw();
+        redrawBoard();
+    });
 };
 
 systemImg.onload = function() {
