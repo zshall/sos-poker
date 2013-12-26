@@ -17,10 +17,10 @@ Array.prototype.shuffle = ->
         this[index] = temp
 
 d_suits =
-    0:'Spades',
-    1:'Clubs',
-    2:'Hearts',
-    3:'Diamonds'
+    0:'spades',
+    1:'clubs',
+    2:'hearts',
+    3:'diamonds'
 
 d_ranks =
     2:'2',
@@ -32,10 +32,10 @@ d_ranks =
     8:'8',
     9:'9',
     10:'10',
-    11:'Jack',
-    12:'Queen',
-    13:'King',
-    14:'Ace'
+    11:'j',
+    12:'q',
+    13:'k',
+    14:'a'
 
 d_bet_multiplier =
     0:0,
