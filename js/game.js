@@ -147,14 +147,14 @@ systemImg.onload = function() {
     layer.add(scoreboard.overflow);
     
     scoreboard.holdOrDraw = new Kinetic.Sprite({
-        x: 50, y: 140, frameRate: 2, animation: 'draw_off',
+        x: 50, y: 140, frameRate: 2, animation: 'draw_on',
         image: systemImg, animations: system,
     });
     layer.add(scoreboard.holdOrDraw);
     scoreboard.holdOrDraw.start();
     
     scoreboard.gameover = new Kinetic.Sprite({
-        x: 50, y: 160, frameRate: 1, animation: 'gameover_on',
+        x: 50, y: 160, frameRate: 1, animation: 'gameover_off',
         image: systemImg, animations: system,
     });
     layer.add(scoreboard.gameover);
