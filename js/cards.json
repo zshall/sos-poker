@@ -1,0 +1,76 @@
+{"frames": [
+{
+	"filename": "2.png",
+	"frame": {"x":705,"y":2,"w":42,"h":35},
+},
+{
+	"filename": "3.png",
+	"frame": {"x":661,"y":2,"w":42,"h":35},
+},
+{
+	"filename": "4.png",
+	"frame": {"x":617,"y":2,"w":42,"h":35},
+},
+{
+	"filename": "5.png",
+	"frame": {"x":573,"y":2,"w":42,"h":35},
+},
+{
+	"filename": "6.png",
+	"frame": {"x":529,"y":2,"w":42,"h":35},
+},
+{
+	"filename": "7.png",
+	"frame": {"x":485,"y":2,"w":42,"h":35},
+},
+{
+	"filename": "8.png",
+	"frame": {"x":441,"y":2,"w":42,"h":35},
+{
+	"filename": "9.png",
+	"frame": {"x":397,"y":2,"w":42,"h":35},
+},
+{
+	"filename": "10.png",
+	"frame": {"x":749,"y":2,"w":42,"h":35},
+},
+{
+	"filename": "a.png",
+	"frame": {"x":353,"y":2,"w":42,"h":35},
+},
+{
+	"filename": "clubs.png",
+	"frame": {"x":107,"y":2,"w":33,"h":39},
+},
+{
+	"filename": "diamonds.png",
+	"frame": {"x":72,"y":2,"w":33,"h":39},
+},
+{
+	"filename": "hearts.png",
+	"frame": {"x":37,"y":2,"w":33,"h":39},
+{
+	"filename": "j.png",
+	"frame": {"x":265,"y":2,"w":42,"h":35},
+},
+{
+	"filename": "k.png",
+	"frame": {"x":221,"y":2,"w":42,"h":35},
+},
+{
+	"filename": "q.png",
+	"frame": {"x":177,"y":2,"w":42,"h":35},
+},
+{
+	"filename": "spades.png",
+	"frame": {"x":2,"y":2,"w":33,"h":39},
+}
+{
+	"filename": "blank.png",
+	"frame": {"x":309,"y":2,"w":42,"h":35},
+},
+{
+	"filename": "blank2.png",
+	"frame": {"x":142,"y":2,"w":33,"h":39},
+}
+]}

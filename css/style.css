@@ -1,0 +1,12 @@
+body {
+    background-image:url("../img/wood.png");
+    font-family:sans-serif;
+    text-align:center;
+}
+
+#game {
+    background-image:url("../img/poker.png");
+    width:504px;
+    height:360px;
+    margin:0 auto;
+}
